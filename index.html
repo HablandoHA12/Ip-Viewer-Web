@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IP Camera Viewer</title>
+    <link href="https://vjs.zencdn.net/7.10.4/video-js.css" rel="stylesheet">
+</head>
+<body>
+    <video id="camera-player" class="video-js" controls preload="auto" width="640" height="360" data-setup='{"techOrder": ["cameraEmbed"]}'></video>
+    <script src="https://vjs.zencdn.net/7.10.4/video.js"></script>
+    <script src="https://unpkg.com/videojs-cameraembed@1.0.0/dist/videojs-cameraembed.min.js"></script>
+    <script>
+        var player = videojs('camera-player');
+        player.cameraEmbed({
+            source: 'http://<your_camera_ip>:<your_camera_port>/',
+            width: 640,
+            height: 360,
+            autoplay: true,
+            muted: true
+        });
+    </script>
+</body>
+</html>
